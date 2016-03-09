@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\SongRequest;
 use App\Http\Requests;
+use Auth;
 
 class SongRequestController extends Controller
 {
@@ -39,7 +40,9 @@ class SongRequestController extends Controller
     public function store(Request $request)
     {
         //
-        $user = \App\User::where('name', $request->user_id);
+        //dd($request->all());
+        $user = \App\User::where('name', $request->user_id)->first();
+        dd($user);
         $songRequest = SongRequest::Create([
           'user_id' => $user->id,
           'title' => $request->title,
@@ -47,7 +50,7 @@ class SongRequestController extends Controller
           'lat' => $request->lat,
           'long'=> $request->long,
           ]);
-        if($songRequest->isValid()){
+        if($songRequest){
           return response()->json([
             'success' => true
             ]);
