@@ -12,6 +12,9 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         //
+      User::all()->each(function($u){
+        $u->delete();
+      });
         User::Create([
           'name' => 'DJ Mastashake',
           'email' => 'jyrone.parker@gmail.com',
