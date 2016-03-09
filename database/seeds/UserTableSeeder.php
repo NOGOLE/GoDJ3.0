@@ -15,8 +15,8 @@ class UserTableSeeder extends Seeder
         User::Create([
           'name' => 'DJ Mastashake',
           'email' => 'jyrone.parker@gmail.com',
-          'password' => bcrypt('n1nt3nd0');
-          'api_token'=> str_random(60)
+          'password' => bcrypt('n1nt3nd0'),
+          'api_token'=> str_random(60),
           ]);
 
     }

@@ -3,7 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use App\User;
+use Mail;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -14,6 +15,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        User::Created(function($user){
+          Mail::send('emails.newUser',['user' => $user], function($m) use ($user){
+            $m->from(env('MAIL_USERNAME'), 'GoDJ');
+
+            $m->to($user->email, $user->name)->subject('Welcome To GoDJ!');
+          });
+        });
     }
 
     /**
