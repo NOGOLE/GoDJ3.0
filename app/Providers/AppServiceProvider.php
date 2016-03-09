@@ -3,7 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use App\SongRequest;
+use App\Events\SongRequested;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -14,6 +15,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        SongRequest::Created(function($songRequest){
+          event(new SongRequested($songRequest));
+        });
     }
 
     /**
