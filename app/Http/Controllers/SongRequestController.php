@@ -42,7 +42,7 @@ class SongRequestController extends Controller
         //
         //dd($request->all());
         $user = \App\User::where('name', $request->user_id)->first();
-        dd($user);
+        //dd($user);
         $songRequest = SongRequest::Create([
           'user_id' => $user->id,
           'title' => $request->title,

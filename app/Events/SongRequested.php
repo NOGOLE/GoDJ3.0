@@ -7,10 +7,10 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use App\SongRequest;
 
-class SongRequested extends Event
+class SongRequested extends Event implements ShouldBroadcast
 {
     use SerializesModels;
-    use ShouldBroadcast;
+
     public $songRequest;
 
     /**

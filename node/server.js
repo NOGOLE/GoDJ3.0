@@ -15,6 +15,7 @@ function handler(req, res) {
 
 io.on('connection', function(socket) {
     //
+    console.log('New Connection: ' + socket);
 });
 
 redis.psubscribe('*', function(err, count) {
@@ -23,5 +24,5 @@ redis.psubscribe('*', function(err, count) {
 
 redis.on('pmessage', function(subscribed, channel, message) {
     message = JSON.parse(message);
-    io.emit(channel + ':' + message.event, message.data);
+    io.emit(channel, message.data);
 });
