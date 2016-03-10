@@ -18,8 +18,8 @@ class CreateSongRequestsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('title');
             $table->string('artist');
-            $table->decimal('lat',8,6);
-            $table->decimal('long',8,6);
+            $table->decimal('lat',8,6)->nullable();
+            $table->decimal('long',8,6)->nullable();
             $table->timestamps();
         });
     }
