@@ -25,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
 
             $m->to($user->email, $user->name)->subject('Welcome To GoDJ!');
           });
+        });
 
         SongRequest::Created(function($songRequest){
           event(new SongRequested($songRequest));
