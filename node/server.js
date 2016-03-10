@@ -23,6 +23,7 @@ redis.psubscribe('*', function(err, count) {
 });
 
 redis.on('pmessage', function(subscribed, channel, message) {
+  console.log(message);
     message = JSON.parse(message);
-    io.emit(channel, message.data);
+    io.emit(channel, message);
 });

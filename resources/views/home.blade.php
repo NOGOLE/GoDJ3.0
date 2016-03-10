@@ -1,7 +1,7 @@
 @extends('layouts.app')
 <style>
 
-     
+
    </style>
 
 @section('content')
@@ -12,7 +12,11 @@
                 <div class="panel-heading">Real-Time Requests</div>
 
                 <div class="panel-body">
-                    <canvas id="myChart" width="400" height="400"></canvas>
+                    <canvas id="songs" width="400" height="400"></canvas>
+                    <br>
+                    <h2>Most Requested Song: <b id="most-requested-song"></b></h2>
+
+                    <canvas id="moods" width="400" height="400"></canvas>
                     <br>
                     <h2>Most Requested Song: <b id="most-requested-song"></b></h2>
                 </div>
