@@ -31,6 +31,6 @@ class SongRequested extends Event
      */
     public function broadcastOn()
     {
-        return ['user'.$this->songRequest->user->id];
+        return ['user.'.$this->songRequest->user->id];
     }
 }
