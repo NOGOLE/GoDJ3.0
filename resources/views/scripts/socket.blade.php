@@ -2,7 +2,7 @@
 <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script src="bower_components/Chart.js/Chart.js"></script>
-<script src="http://159.203.76.248/:6001/socket.io/socket.io.js"></script>
+<script src="http://159.203.76.248:6001/socket.io/socket.io.js"></script>
 <script>
 var songData = [];
 var moodData = [];
