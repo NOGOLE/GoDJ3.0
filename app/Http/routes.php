@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('song-request','SongRequestController');
+Route::resource('mood-request','MoodRequestController');
 
 /*
 |--------------------------------------------------------------------------

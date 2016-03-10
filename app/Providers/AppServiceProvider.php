@@ -6,7 +6,9 @@ use Illuminate\Support\ServiceProvider;
 use App\User;
 use Mail;
 use App\SongRequest;
+use App\MoodRequest;
 use App\Events\SongRequested;
+use App\Events\MoodRequested;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,6 +31,11 @@ class AppServiceProvider extends ServiceProvider
 
         SongRequest::Created(function($songRequest){
           event(new SongRequested($songRequest));
+
+        });
+
+        MoodRequest::Created(function($moodRequest){
+          event(new MoodRequested($moodRequest));
 
         });
     }

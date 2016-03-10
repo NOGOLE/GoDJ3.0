@@ -12,13 +12,13 @@
                 <div class="panel-heading">Real-Time Requests</div>
 
                 <div class="panel-body">
-                    <canvas id="songs" width="400" height="400"></canvas>
+                    <canvas id="songs" width="500" height="400"></canvas>
                     <br>
                     <h2>Most Requested Song: <b id="most-requested-song"></b></h2>
 
-                    <canvas id="moods" width="400" height="400"></canvas>
+                    <canvas id="moods" width="500" height="400"></canvas>
                     <br>
-                    <h2>Most Requested Song: <b id="most-requested-song"></b></h2>
+                    <h2>Most Requested Mood: <b id="most-requested-mood"></b></h2>
                 </div>
             </div>
         </div>

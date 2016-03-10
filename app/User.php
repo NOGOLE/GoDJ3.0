@@ -27,4 +27,7 @@ class User extends Authenticatable
     public function songRequests(){
       return $this->hasMany('App\SongRequest');
     }
+    public function moodRequests(){
+      return $this->hasMany('App\MoodRequest');
+    }
 }
