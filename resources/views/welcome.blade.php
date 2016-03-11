@@ -76,11 +76,11 @@ function getLocation() {
 }
 function showPosition(position) {
 
- $('#song_lat').val() = position.coords.latitude;
- $('#mood_lat').val() = position.coords.latitude;
+ docuent.getElementById('song_lat').value = position.coords.latitude;
+ docuent.getElementById('mood_lat').value = position.coords.latitude;
 
- $('#song_long').val() = position.coords.longitude;
-$('#mood_long').val() = position.coords.longitude;
+ docuent.getElementById('song_long').value = position.coords.longitude;
+docuent.getElementById('mood_long').value = position.coords.longitude;
 }
 window.onload=getLocation();
 </script>
