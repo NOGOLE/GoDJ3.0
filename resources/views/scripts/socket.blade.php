@@ -13,7 +13,7 @@ var mySongChart = new Chart(ctx).Doughnut(songData);
 var myMoodChart = new Chart(ctx2).Doughnut(moodData);
   var songs = [];
   var moods = [];
-  var socket = io('http://godj.app:6001');
+  var socket = io('http://159.203.76.248:6001');
   var channel = "user.{{Auth::user()->id}}";
 
   socket.on(channel, function (data) {
