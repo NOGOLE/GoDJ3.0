@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\MoodRequest;
 use App\Http\Requests;
 use Auth;
+use Log;
 class MoodRequestController extends Controller
 {
     /**
@@ -39,7 +40,7 @@ class MoodRequestController extends Controller
     public function store(Request $request)
     {
         //
-        //dd($request->all());
+        Log::info('Info',$request->all());
         $user = \App\User::where('name', $request->user_id)->first();
         //dd($user);
         $moodRequest = MoodRequest::Create([
@@ -49,10 +50,14 @@ class MoodRequestController extends Controller
           'long'=> $request->long,
           ]);
         if($moodRequest){
-          return redirect()->route('home')->with('status', 'Mood submitted!');
+          return response()->json([
+            'success' => true
+            ]);
         }
         else{
-          return redirect()->route('home')->with('status', 'Something went wrong try again!');
+          return response()->json([
+            'success' => false
+            ]);
         }
 
     }

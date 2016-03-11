@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\SongRequest;
 use App\Http\Requests;
 use Auth;
-
+use Log;
 class SongRequestController extends Controller
 {
     /**
@@ -40,7 +40,7 @@ class SongRequestController extends Controller
     public function store(Request $request)
     {
         //
-        //dd($request->all());
+        Log::info('Info',$request->all());
         $user = \App\User::where('name', $request->user_id)->first();
         //dd($user);
         $songRequest = SongRequest::Create([
@@ -51,11 +51,14 @@ class SongRequestController extends Controller
           'long'=> $request->long,
           ]);
         if($songRequest){
-          return redirect()->route('home')->with('status', 'Song submitted!');
-
+          return response()->json([
+            'success' => true
+            ]);
         }
         else{
-          return redirect()->route('home')->with('status', 'Something went wrong try again!');
+          return response()->json([
+            'success' => false
+            ]);
         }
 
     }
