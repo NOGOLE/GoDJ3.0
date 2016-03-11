@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\MoodRequest;
 use App\Http\Requests;
-
+use Auth;
 class MoodRequestController extends Controller
 {
     /**
@@ -49,14 +49,10 @@ class MoodRequestController extends Controller
           'long'=> $request->long,
           ]);
         if($moodRequest){
-          return response()->json([
-            'success' => true
-            ]);
+          return redirect()->route('home')->with('status', 'Mood submitted!');
         }
         else{
-          return response()->json([
-            'success' => false
-            ]);
+          return redirect()->route('home')->with('status', 'Something went wrong try again!');
         }
 
     }

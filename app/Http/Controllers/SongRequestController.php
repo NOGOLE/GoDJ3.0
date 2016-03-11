@@ -51,14 +51,11 @@ class SongRequestController extends Controller
           'long'=> $request->long,
           ]);
         if($songRequest){
-          return response()->json([
-            'success' => true
-            ]);
+          return redirect()->route('home')->with('status', 'Song submitted!');
+
         }
         else{
-          return response()->json([
-            'success' => false
-            ]);
+          return redirect()->route('home')->with('status', 'Something went wrong try again!');
         }
 
     }

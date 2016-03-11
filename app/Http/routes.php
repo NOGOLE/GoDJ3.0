@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['as'=>'home',function () {
     return view('welcome');
-});
+}]);
 Route::resource('song-request','SongRequestController');
 Route::resource('mood-request','MoodRequestController');
 
