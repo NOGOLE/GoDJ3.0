@@ -64,14 +64,11 @@
 <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script>
-var x;
-var y;
-
 function getLocation() {
  if (navigator.geolocation) {
      navigator.geolocation.getCurrentPosition(showPosition);
  } else {
-     x.innerHTML = "Geolocation is not supported by this browser.";
+     alert("Geolocation is not supported by this browser.");
  }
 }
 function showPosition(position) {
