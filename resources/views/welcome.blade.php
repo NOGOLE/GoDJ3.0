@@ -9,6 +9,7 @@
 
                 <div class="panel-body">
                   <div class="row">
+                    Try it out! Send a request to DJ Mastashake!
                     <div class="col-md-6">
                     <canvas id="songs" width="350" height="400"></canvas>
                     <hr>
