@@ -60,6 +60,8 @@
         </div>
     </div>
 </div>
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script>
 var x;
 var y;
@@ -82,8 +84,7 @@ $('#mood_long').val() = position.coords.longitude;
 window.onload=getLocation();
 </script>
 
-<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
 <script src="bower_components/Chart.js/Chart.js"></script>
 <script src="http://159.203.76.248:6001/socket.io/socket.io.js"></script>
 <script>
@@ -153,7 +154,7 @@ color: color,
 highlight: highlight,
 label: data.songRequest.title + ' by ' + data.songRequest.artist
 });
-updateSongMarkers(data);
+
 updateMostRequestedSongs(mySongChart.segments);
 }
 
@@ -209,7 +210,7 @@ function updateMostRequestedMoods(moods){
       };
       console.log(data);
       $.post('/song-request',data,function(data, status){
-        console.log("Data: " + data + "\nStatus: " + status);
+        alert("\nStatus: " + status);
     });
     }
     function sendMood(){
@@ -221,7 +222,7 @@ function updateMostRequestedMoods(moods){
       };
       console.log(data);
       $.post('/mood-request',data,function(data, status){
-        console.log("Data: " + data + "\nStatus: " + status);
+        alert("\nStatus: " + status);
     });
     }
     </script>
