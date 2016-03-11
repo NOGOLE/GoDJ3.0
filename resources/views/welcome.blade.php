@@ -137,6 +137,13 @@ function updateSongData(mySongChart, data, songs){
   songs.push(data.songRequest.title);
   updateMostRequestedSongs(mySongChart.segments);
 }
+function updateMoodData(myMoodChart, data, moods){
+  myMoodChart.segments[$.inArray(data.moodRequest.title, songs)].value += 1;
+  myMoodChart.update();
+  moods.push(data.moodRequest.title);
+  
+  updateMostRequestedMoods(myMoodChart.segments);
+}
 
 function addNewSongData(songs,chart,data){
   var color = '#' + (function co(lor){   return (lor +=
