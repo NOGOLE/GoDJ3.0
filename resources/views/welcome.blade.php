@@ -138,10 +138,11 @@ function updateSongData(mySongChart, data, songs){
   updateMostRequestedSongs(mySongChart.segments);
 }
 function updateMoodData(myMoodChart, data, moods){
+  console.log(myMoodChart.segments);
   myMoodChart.segments[$.inArray(data.moodRequest.title, songs)].value += 1;
   myMoodChart.update();
   moods.push(data.moodRequest.title);
-  
+
   updateMostRequestedMoods(myMoodChart.segments);
 }
 
