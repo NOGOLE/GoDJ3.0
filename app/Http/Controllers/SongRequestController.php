@@ -17,7 +17,7 @@ class SongRequestController extends Controller
     public function index()
     {
         //
-        return Auth::user()->songRequests;
+        //return Auth::user()->songRequests;
     }
 
     /**
