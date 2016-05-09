@@ -1,6 +1,34 @@
 @extends('layouts.app')
 
 @section('content')
+<script>
+function sendSong(){
+  var data= {
+    lat: $('#song_lat').val(),
+    long: $('#song_long').val(),
+    title: $('#song_title').val(),
+    artist: $('#song_artist').val(),
+    user_id: $('#song_user_id').val()
+  };
+  console.log(data);
+  $.post('/song-request',data,function(data, status){
+    alert("\nStatus: " + status);
+});
+}
+function sendMood(){
+  var data = {
+    lat: $('#mood_lat').val(),
+    long: $('#mood_long').val(),
+    title: $('#mood_title').val(),
+    user_id: $('#mood_user_id').val()
+  };
+  console.log(data);
+  $.post('/mood-request',data,function(data, status){
+    alert("\nStatus: " + status);
+});
+}
+</script>
+
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -84,7 +112,7 @@ window.onload=getLocation();
 
 
 <script src="bower_components/Chart.js/Chart.js"></script>
-<script src="http://159.203.76.248:6001/socket.io/socket.io.js"></script>
+<script src="https://godj.online:6001/socket.io/socket.io.js"></script>
 <script>
 var songData = [];
 var moodData = [];
@@ -95,7 +123,7 @@ var mySongChart = new Chart(ctx).Doughnut(songData);
 var myMoodChart = new Chart(ctx2).Doughnut(moodData);
   var songs = [];
   var moods = [];
-  var socket = io('http://159.203.76.248:6001');
+  var socket = io('https://godj.online:6001');
   var channel = "user.1";
 
   socket.on(channel, function (data) {
@@ -205,31 +233,5 @@ function updateMostRequestedMoods(moods){
 }
 </script>
 
-    <script>
-    function sendSong(){
-      var data= {
-        lat: $('#song_lat').val(),
-        long: $('#song_long').val(),
-        title: $('#song_title').val(),
-        artist: $('#song_artist').val(),
-        user_id: $('#song_user_id').val()
-      };
-      console.log(data);
-      $.post('/song-request',data,function(data, status){
-        alert("\nStatus: " + status);
-    });
-    }
-    function sendMood(){
-      var data = {
-        lat: $('#mood_lat').val(),
-        long: $('#mood_long').val(),
-        title: $('#mood_title').val(),
-        user_id: $('#mood_user_id').val()
-      };
-      console.log(data);
-      $.post('/mood-request',data,function(data, status){
-        alert("\nStatus: " + status);
-    });
-    }
-    </script>
+
 @endsection
