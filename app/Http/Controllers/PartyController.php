@@ -120,7 +120,8 @@ class PartyController extends Controller
       // Get the credit card details submitted by the form
       $token = $request->token;
       $party = Party::find($request->party_id);
-      $total = $request->amount * $request->price;
+      $total = $request->amount * $party->price * 100;
+
       // Create the charge on Stripe's servers - this will charge the user's card
       try {
         $charge = \Stripe\Charge::create(array(
@@ -129,7 +130,7 @@ class PartyController extends Controller
           "source" => $token,
           "description" => "{$party->amount} ticket(s) to {$party->name}"
           ));
-          new event(TicketPurchased($request));
+           event(new TicketPurchased($request));
 
       } catch(\Stripe\Error\Card $e) {
         // The card has been declined

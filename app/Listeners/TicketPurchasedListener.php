@@ -28,6 +28,7 @@ class TicketPurchasedListener
     {
         //
         $email = $event->request->email;
+        $request = $event->request;
         Mail::send('emails.ticket', ['request' => $request, 'party' => \App\Party::find($request->party_id)], function ($m) use ($email) {
             $m->from('tickets@godj.online', 'GoDJ');
 

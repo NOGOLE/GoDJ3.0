@@ -10,4 +10,4 @@ Event Starts: {{$party->starts_at->toDayDateTimeString()}}
 <br>
 Event Ends: {{$party->ends_at->toDayDateTimeString()}}
 <br>
-Total Amount Spent: {{$party->price * $request->amount}} 
+Total Amount Spent: {{money_format("$%i", $party->price * $request->amount)}} 
