@@ -27,7 +27,7 @@
         <td>{{$party->ends_at->toDayDateTimeString()}}</td>
         <td>${{$party->price}}</td>
         <td>
-          <button class="btn btn-default" id="customButton{{$party->id}}">Purchase</button>
+          <button class="btn btn-success" id="customButton{{$party->id}}"><i class="fa fa-dollar fa-lg"></i> Purchase</button>
 
 <script>
 
@@ -41,6 +41,11 @@
         token: function(token) {
           // You can access the token ID with `token.id`.
           // Get the token ID to your server-side code for use.
+          var data = {token: token.id, email: token.email, party_id: {{$party->id}}, amount: ans};
+          console.log(data);
+          $.post('/buy-tickets', data, function(){
+            alert('Order Complete!');
+          });
         }
       });
       // Open Checkout with further options:
