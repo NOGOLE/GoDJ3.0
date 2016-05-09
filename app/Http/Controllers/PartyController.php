@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Party;
 use App\Http\Requests;
-
+use App\Events\TicketPurchased;
 class PartyController extends Controller
 {
 
@@ -129,7 +129,8 @@ class PartyController extends Controller
           "source" => $token,
           "description" => "{$party->amount} ticket(s) to {$party->name}"
           ));
-          
+          new event(TicketPurchased($request));
+
       } catch(\Stripe\Error\Card $e) {
         // The card has been declined
       }

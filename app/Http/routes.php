@@ -14,6 +14,7 @@
 Route::get('/', ['as'=>'home',function () {
     return view('welcome');
 }]);
+Route::post('/buy-tickets', 'PartyController@buyTickets');
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +35,5 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('song-request','SongRequestController');
     Route::resource('mood-request','MoodRequestController');
     Route::resource('party', 'PartyController');
+
 });

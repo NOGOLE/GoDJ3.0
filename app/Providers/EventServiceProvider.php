@@ -19,6 +19,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\MoodRequested' => [
             'App\Listeners\MoodRequestedListener',
         ],
+        'App\Events\TicketPurchased' => [
+            'App\Listeners\TicketPurchasedListener',
+        ],
     ];
 
     /**
