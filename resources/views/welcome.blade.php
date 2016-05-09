@@ -112,7 +112,7 @@ window.onload=getLocation();
 
 
 <script src="bower_components/Chart.js/Chart.js"></script>
-<script src="https://localhost:3000/socket.io/socket.io.js"></script>
+<script src="https://godj.online:3000/socket.io/socket.io.js"></script>
 <script>
 var songData = [];
 var moodData = [];
@@ -123,7 +123,7 @@ var mySongChart = new Chart(ctx).Doughnut(songData);
 var myMoodChart = new Chart(ctx2).Doughnut(moodData);
   var songs = [];
   var moods = [];
-  var socket = io('https://localhost:3000');
+  var socket = io('https://godj.online:3000');
   var channel = "user.1";
 
   socket.on(channel, function (data) {
