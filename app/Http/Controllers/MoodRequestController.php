@@ -17,7 +17,7 @@ class MoodRequestController extends Controller
     public function index()
     {
         //
-        return Auth::guard('api')->user()->moodRequests;
+        return Auth::user()->moodRequests;
     }
 
     /**
