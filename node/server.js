@@ -1,4 +1,4 @@
-var app = require('http').createServer(handler);
+var app = require('https').createServer(handler);
 var io = require('socket.io')(app);
 
 var Redis = require('ioredis');
