@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\StripeAccount;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -28,7 +29,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new authentication controller instance.
@@ -63,10 +64,25 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+      \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+      $account = \Stripe\Account::create(
+        array(
+          "country" => "US",
+          "managed" => true
+        )
+        );
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+        $stripeAccount = StripeAccount::Create([
+          'user_id' => $user->id,
+          'account_id' => $account->id,
+          'public_key' => $account->keys->publishable,
+          'secret_key' => $account->keys->secret
+          ]);
+          return $user;
+
     }
 }
