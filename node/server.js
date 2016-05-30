@@ -1,4 +1,12 @@
-var app = require('http').createServer(handler);
+
+var fs = require('fs');
+
+var options = {
+  key: fs.readFileSync('/etc/nginx/ssl/godj.online/93947/server.key'),
+  cert: fs.readFileSync('/etc/nginx/ssl/godj.online/93947/server.crt')
+};
+
+var app = require('https').createServer(options,handler);
 var io = require('socket.io')(app);
 
 var Redis = require('ioredis');
