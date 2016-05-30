@@ -9,7 +9,9 @@ var options = {
 app.createServer(options, function (req, res) {
   res.writeHead(200);
   res.end("hello world\n");
-}).listen(3000);
+}).listen(3000, function() {
+    console.log('Server is running!');
+});
 var io = require('socket.io')(app);
 var Redis = require('ioredis');
 var redis = new Redis();
