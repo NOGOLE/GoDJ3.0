@@ -1,5 +1,5 @@
 var app = require('https');
-var io = require('socket.io')(app);
+
 var fs = require('fs');
 
 var options = {
@@ -9,7 +9,8 @@ var options = {
 app.createServer(options, function (req, res) {
   res.writeHead(200);
   res.end("hello world\n");
-}).listen(3000);;
+}).listen(3000);
+var io = require('socket.io')(app);
 var Redis = require('ioredis');
 var redis = new Redis();
 
