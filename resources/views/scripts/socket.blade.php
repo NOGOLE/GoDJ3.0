@@ -2,7 +2,7 @@
 <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script src="bower_components/Chart.js/Chart.js"></script>
-<script src="https://godj.online:6001/socket.io/socket.io.js"></script>
+<script src="https://godj.online:3000/socket.io/socket.io.js"></script>
 <script>
 var songData = [];
 var moodData = [];
@@ -13,7 +13,7 @@ var mySongChart = new Chart(ctx).Doughnut(songData);
 var myMoodChart = new Chart(ctx2).Doughnut(moodData);
   var songs = [];
   var moods = [];
-  var socket = io('http://159.203.76.248:6001');
+  var socket = io('https://godj.online:3000');
   var channel = "user.{{Auth::user()->id}}";
 
   socket.on(channel, function (data) {
