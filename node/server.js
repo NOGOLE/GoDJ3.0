@@ -6,7 +6,7 @@ var options = {
   key: fs.readFileSync('/etc/nginx/ssl/godj.online/93947/server.key'),
   cert: fs.readFileSync('/etc/nginx/ssl/godj.online/93947/server.crt')
 };
-app.createServer(options,handler);
+app.createServer(options);
 var Redis = require('ioredis');
 var redis = new Redis();
 
