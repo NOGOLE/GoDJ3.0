@@ -6,7 +6,7 @@ var options = {
   cert: fs.readFileSync('/etc/nginx/ssl/godj.online/93947/server.crt').toString()
 };
 
-var app = require('https').createServer(options,handler);
+var app = require('https').createServer(options);
 var io = require('socket.io')(app);
 
 var Redis = require('ioredis');
@@ -15,6 +15,7 @@ var redis = new Redis();
 app.listen(3000, function() {
     console.log('Server is running!');
 });
+console.log(app);
 
 function handler(req, res) {
     res.writeHead(200);
