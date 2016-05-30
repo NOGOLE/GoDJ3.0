@@ -6,10 +6,7 @@ var options = {
   key: fs.readFileSync('/etc/nginx/ssl/godj.online/93947/server.key'),
   cert: fs.readFileSync('/etc/nginx/ssl/godj.online/93947/server.crt')
 };
-app.createServer(options, function (req, res) {
-  res.writeHead(200);
-  res.end("hello world\n");
-}).listen(3000, function() {
+app.createServer(options, handler).listen(3000, function() {
     console.log('Server is running!');
 });
 var io = require('socket.io')(app);
