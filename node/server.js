@@ -2,8 +2,8 @@
 var fs = require('fs');
 
 var options = {
-  key: fs.readFileSync('/etc/nginx/ssl/godj.online/93947/server.key'),
-  cert: fs.readFileSync('/etc/nginx/ssl/godj.online/93947/server.crt')
+  key: fs.readFileSync('/etc/nginx/ssl/godj.online/93947/server.key').toString(),
+  cert: fs.readFileSync('/etc/nginx/ssl/godj.online/93947/server.crt').toString()
 };
 
 var app = require('https').createServer(options,handler).listen(3000);
