@@ -1,4 +1,5 @@
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCDNt1biVyfA8h-eCZyZ69CKS6NNBCeEQ&callback=initMap"
+    async defer></script>
 <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script src="bower_components/Chart.js/Chart.js"></script>
@@ -14,7 +15,7 @@ var myMoodChart = new Chart(ctx2).Doughnut(moodData);
   var songs = [];
   var moods = [];
   var socket = io("{{env('APP_URL')}}:3000");
-  var channel = "user.{{Auth::user()->id}}";
+  var channel = "user.1";
 
   socket.on(channel, function (data) {
 
@@ -129,6 +130,7 @@ function updateMostRequestedMoods(moods){
           center: {lat: 41.850033, lng: -87.6500523},
           zoom: 4
         });
+        console.log(map);
       }
       function updateSongMarkers(data){
         var pinIcon = new google.maps.MarkerImage(
@@ -164,5 +166,3 @@ function updateMostRequestedMoods(moods){
     });
       }
     </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCDNt1biVyfA8h-eCZyZ69CKS6NNBCeEQ&callback=initMap"
-    async defer></script>
