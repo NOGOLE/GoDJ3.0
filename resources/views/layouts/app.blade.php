@@ -53,6 +53,10 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="{{ url('/party/all') }}">Browse Parties</a></li>
+                    @if(Auth::check() == true)
+                    <li><a href="{{ url('/party/add') }}">Add Party</a></li>
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->

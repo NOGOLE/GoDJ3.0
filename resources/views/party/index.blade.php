@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<div class="table-responsive">
 <script src="https://checkout.stripe.com/checkout.js"></script>
 <table class="table table-striped">
   <tr>
@@ -73,7 +74,7 @@
   </tr>
   @endforeach
 </table>
-
+</div>
 
   {!! $parties->render() !!}
 

@@ -32,6 +32,10 @@ class User extends Authenticatable
       return $this->hasMany('App\MoodRequest');
     }
 
+    public function parties(){
+      return $this->hasMany('App\Party');
+    }
+
     public function stripeAccount(){
       return $this->hasOne('App\StripeAccount');
     }

@@ -14,6 +14,7 @@
 Route::get('/', ['as'=>'home',function () {
     return view('welcome');
 }]);
+
 Route::post('/buy-tickets', 'PartyController@buyTickets');
 
 /*
@@ -30,6 +31,10 @@ Route::post('/buy-tickets', 'PartyController@buyTickets');
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
+    Route::group(['prefix' => 'party'], function(){
+    Route::get('all', 'PartyController@index');
+    Route::get('add', 'PartyController@create');
+    });
 
     Route::get('/home', 'HomeController@index');
     Route::resource('song-request','SongRequestController');
