@@ -55,3 +55,4 @@ redis.on('pmessage', function(subscribed, channel, message) {
     console.log('Channel is ' + channel + ' and message is ' + message);
 
     io.emit(channel, message.data);
+  });
