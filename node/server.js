@@ -20,7 +20,7 @@ var Redis = require('ioredis');
 
 var redis = new Redis();
 
-app.listen(9000, function() {
+app.listen(3000, function() {
 
     console.log('Server is running!');
 
